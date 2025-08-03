@@ -1,697 +1,787 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PareBrigas - Transforme seu Relacionamento</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PareBrigas - Transforme seu Relacionamento</title>
+   <style>
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #ffffff;
-        }
+       body {
+           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+           line-height: 1.6;
+           color: #333;
+           background-color: #ffffff;
+       }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+       .container {
+           max-width: 800px;
+           margin: 0 auto;
+           padding: 0 20px;
+       }
 
-        /* Header */
-        header {
-            background: #ffffff;
-            padding: 20px 0;
-            border-bottom: 1px solid #e0e0e0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+       /* Header */
+       header {
+           background: #ffffff;
+           padding: 20px 0;
+           border-bottom: 1px solid #e0e0e0;
+           position: sticky;
+           top: 0;
+           z-index: 100;
+       }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2c3e50;
-            text-align: center;
-        }
+       .logo {
+           font-size: 24px;
+           font-weight: 700;
+           color: #2c3e50;
+           text-align: center;
+       }
 
-        /* Landing Section */
-        .landing {
-            padding: 60px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-        }
+       /* Landing Section */
+       .landing {
+           padding: 60px 0;
+           text-align: center;
+           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+       }
 
-        .headline {
-            font-size: 48px;
-            font-weight: 800;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
+       .headline {
+           font-size: 48px;
+           font-weight: 800;
+           color: #2c3e50;
+           margin-bottom: 20px;
+           line-height: 1.2;
+       }
 
-        .subtitle {
-            font-size: 22px;
-            color: #555;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+       .subtitle {
+           font-size: 22px;
+           color: #555;
+           margin-bottom: 40px;
+           max-width: 600px;
+           margin-left: auto;
+           margin-right: auto;
+       }
 
-        .cta-button {
-            background: #e74c3c;
-            color: white;
-            padding: 18px 40px;
-            font-size: 20px;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
+       /* CTA Section Styling */
+       .cta-section {
+           text-align: center;
+           margin: 40px 0;
+       }
 
-        .cta-button:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-        }
+       .cta-text {
+           font-size: 18px;
+           color: #2c3e50;
+           font-weight: 600;
+           margin-bottom: 10px;
+       }
 
-        .trust-indicators {
-            margin-top: 30px;
-            font-size: 16px;
-            color: #777;
-        }
+       .cta-arrow {
+           font-size: 16px;
+           color: #666;
+           margin-bottom: 20px;
+       }
 
-        /* Quiz Section */
-        .quiz-container {
-            display: none;
-            padding: 40px 0;
-            background: #ffffff;
-        }
+       .cta-button {
+           background: #007bff;
+           color: white;
+           padding: 12px 30px;
+           font-size: 16px;
+           font-weight: 600;
+           border: 2px solid #0056b3;
+           border-radius: 6px;
+           cursor: pointer;
+           text-decoration: none;
+           display: inline-block;
+           transition: all 0.3s ease;
+           box-shadow: 0 3px 10px rgba(0,123,255,0.3);
+       }
 
-        .quiz-question {
-            display: none;
-            text-align: center;
-        }
+       .cta-button:hover {
+           background: #0056b3;
+           border-color: #004085;
+           transform: translateY(-2px);
+           box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+       }
 
-        .quiz-question.active {
-            display: block;
-        }
+       .cta-button:active {
+           transform: translateY(0);
+           box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+       }
 
-        .question-title {
-            font-size: 28px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
+       /* Special styling for larger CTA buttons */
+       .cta-button-large {
+           background: #007bff;
+           color: white;
+           padding: 16px 40px;
+           font-size: 18px;
+           font-weight: 600;
+           border: 2px solid #0056b3;
+           border-radius: 6px;
+           cursor: pointer;
+           text-decoration: none;
+           display: inline-block;
+           transition: all 0.3s ease;
+           box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+       }
 
-        .question-options {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+       .cta-button-large:hover {
+           background: #0056b3;
+           border-color: #004085;
+           transform: translateY(-2px);
+           box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+       }
 
-        .option {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            padding: 15px 20px;
-            margin: 10px 0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: left;
-            font-size: 16px;
-        }
+       .trust-indicators {
+           margin-top: 30px;
+           font-size: 16px;
+           color: #777;
+       }
 
-        .option:hover {
-            border-color: #e74c3c;
-            background: #fff5f5;
-        }
+       /* Quiz Section */
+       .quiz-container {
+           display: none;
+           padding: 40px 0;
+           background: #ffffff;
+       }
 
-        .quiz-progress {
-            width: 100%;
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 4px;
-            margin-bottom: 30px;
-        }
+       .quiz-question {
+           display: none;
+           text-align: center;
+       }
 
-        .quiz-progress-bar {
-            height: 100%;
-            background: #e74c3c;
-            border-radius: 4px;
-            transition: width 0.3s ease;
-        }
+       .quiz-question.active {
+           display: block;
+       }
 
-        /* Result Section */
-        .result-container {
-            display: none;
-            padding: 60px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
-        }
+       .question-title {
+           font-size: 28px;
+           font-weight: 600;
+           color: #2c3e50;
+           margin-bottom: 30px;
+       }
 
-        .result-headline {
-            font-size: 36px;
-            font-weight: 700;
-            color: #e74c3c;
-            margin-bottom: 30px;
-        }
+       .question-options {
+           max-width: 600px;
+           margin: 0 auto;
+       }
 
-        .diagnosis {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-            text-align: left;
-        }
+       .option {
+           background: #f8f9fa;
+           border: 2px solid #e9ecef;
+           padding: 15px 20px;
+           margin: 10px 0;
+           border-radius: 8px;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           text-align: left;
+           font-size: 16px;
+       }
 
-        .diagnosis-item {
-            display: flex;
-            align-items: center;
-            margin: 15px 0;
-            font-size: 18px;
-        }
+       .option:hover {
+           border-color: #007bff;
+           background: #e3f2fd;
+       }
 
-        .diagnosis-item::before {
-            content: "✗";
-            color: #e74c3c;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 20px;
-        }
+       .quiz-progress {
+           width: 100%;
+           height: 8px;
+           background: #e9ecef;
+           border-radius: 4px;
+           margin-bottom: 30px;
+       }
 
-        .insight-box {
-            background: #e74c3c;
-            color: white;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            font-size: 20px;
-            font-weight: 500;
-        }
+       .quiz-progress-bar {
+           height: 100%;
+           background: #007bff;
+           border-radius: 4px;
+           transition: width 0.3s ease;
+       }
 
-        /* Sales Page */
-        .sales-container {
-            display: none;
-            padding: 40px 0;
-        }
+       /* Result Section */
+       .result-container {
+           display: none;
+           padding: 60px 0;
+           text-align: center;
+           background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+       }
 
-        .section {
-            margin-bottom: 50px;
-        }
+       .result-headline {
+           font-size: 36px;
+           font-weight: 700;
+           color: #e74c3c;
+           margin-bottom: 30px;
+       }
 
-        .section-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+       .diagnosis {
+           background: #ffffff;
+           padding: 30px;
+           border-radius: 12px;
+           box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+           margin-bottom: 40px;
+           text-align: left;
+       }
 
-        .problem-list, .solution-list {
-            list-style: none;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+       .diagnosis-item {
+           display: flex;
+           align-items: center;
+           margin: 15px 0;
+           font-size: 18px;
+       }
 
-        .problem-list li, .solution-list li {
-            padding: 12px 0;
-            font-size: 18px;
-            border-bottom: 1px solid #f0f0f0;
-        }
+       .diagnosis-item::before {
+           content: "✗";
+           color: #e74c3c;
+           font-weight: bold;
+           margin-right: 15px;
+           font-size: 20px;
+       }
 
-        .problem-list li::before {
-            content: "•";
-            color: #e74c3c;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+       .insight-box {
+           background: #e74c3c;
+           color: white;
+           padding: 25px;
+           border-radius: 8px;
+           margin-bottom: 30px;
+           font-size: 20px;
+           font-weight: 500;
+       }
 
-        .solution-list li::before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            margin-right: 10px;
-        }
+       /* Sales Page */
+       .sales-container {
+           display: none;
+           padding: 40px 0;
+       }
 
-        .testimonial {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #e74c3c;
-            margin: 20px 0;
-            font-style: italic;
-            font-size: 16px;
-        }
+       .section {
+           margin-bottom: 50px;
+       }
 
-        .testimonial-author {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-top: 10px;
-            font-style: normal;
-        }
+       .section-title {
+           font-size: 32px;
+           font-weight: 700;
+           color: #2c3e50;
+           margin-bottom: 20px;
+           text-align: center;
+       }
 
-        .offer-box {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            margin: 40px 0;
-        }
+       .problem-list, .solution-list {
+           list-style: none;
+           max-width: 600px;
+           margin: 0 auto;
+       }
 
-        .price-old {
-            font-size: 18px;
-            text-decoration: line-through;
-            opacity: 0.8;
-        }
+       .problem-list li, .solution-list li {
+           padding: 12px 0;
+           font-size: 18px;
+           border-bottom: 1px solid #f0f0f0;
+       }
 
-        .price-new {
-            font-size: 48px;
-            font-weight: 800;
-            margin: 10px 0;
-        }
+       .problem-list li::before {
+           content: "•";
+           color: #e74c3c;
+           font-weight: bold;
+           margin-right: 10px;
+       }
 
-        .guarantee {
-            background: #d5f4e6;
-            border: 2px solid #27ae60;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 30px 0;
-        }
+       .solution-list li::before {
+           content: "✓";
+           color: #27ae60;
+           font-weight: bold;
+           margin-right: 10px;
+       }
 
-        .guarantee-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #27ae60;
-            margin-bottom: 10px;
-        }
+       .testimonial {
+           background: #f8f9fa;
+           padding: 25px;
+           border-radius: 8px;
+           border-left: 4px solid #007bff;
+           margin: 20px 0;
+           font-style: italic;
+           font-size: 16px;
+       }
 
-        /* FAQ Section */
-        .faq-container {
-            margin-top: 50px;
-        }
+       .testimonial-author {
+           font-weight: 600;
+           color: #2c3e50;
+           margin-top: 10px;
+           font-style: normal;
+       }
 
-        .faq-item {
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 20px;
-        }
+       .offer-box {
+           background: linear-gradient(135deg, #007bff, #0056b3);
+           color: white;
+           padding: 40px;
+           border-radius: 12px;
+           text-align: center;
+           margin: 40px 0;
+       }
 
-        .faq-question {
-            background: #f8f9fa;
-            padding: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 18px;
-            color: #2c3e50;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
+       .price-old {
+           font-size: 18px;
+           text-decoration: line-through;
+           opacity: 0.8;
+       }
 
-        .faq-question:hover {
-            background: #e9ecef;
-        }
+       .price-new {
+           font-size: 48px;
+           font-weight: 800;
+           margin: 10px 0;
+       }
 
-        .faq-answer {
-            padding: 20px;
-            display: none;
-            font-size: 16px;
-            line-height: 1.6;
-        }
+       .offer-cta-button {
+           background: white;
+           color: #007bff;
+           padding: 16px 40px;
+           font-size: 18px;
+           font-weight: 600;
+           border: 2px solid #ffffff;
+           border-radius: 6px;
+           cursor: pointer;
+           text-decoration: none;
+           display: inline-block;
+           transition: all 0.3s ease;
+           box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+       }
 
-        .faq-answer.active {
-            display: block;
-        }
+       .offer-cta-button:hover {
+           background: #f8f9fa;
+           transform: translateY(-2px);
+           box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+       }
 
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-        }
+       .guarantee {
+           background: #d5f4e6;
+           border: 2px solid #27ae60;
+           padding: 20px;
+           border-radius: 8px;
+           text-align: center;
+           margin: 30px 0;
+       }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .headline {
-                font-size: 32px;
-            }
-            
-            .subtitle {
-                font-size: 18px;
-            }
-            
-            .question-title {
-                font-size: 22px;
-            }
-            
-            .section-title {
-                font-size: 26px;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-        }
+       .guarantee-title {
+           font-size: 20px;
+           font-weight: 600;
+           color: #27ae60;
+           margin-bottom: 10px;
+       }
 
-        /* Utilities */
-        .text-center { text-align: center; }
-        .hidden { display: none; }
-        .mb-20 { margin-bottom: 20px; }
-        .mb-30 { margin-bottom: 30px; }
-        .mt-30 { margin-top: 30px; }
-    </style>
+       /* FAQ Section */
+       .faq-container {
+           margin-top: 50px;
+       }
 
-    <!-- PIXEL DE RASTREAMENTO UTMIFY -->
-    <script>
-        window.pixelId = "688f8b363addbd79cf29214b";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
-    </script>
+       .faq-item {
+           border-bottom: 1px solid #e0e0e0;
+           margin-bottom: 20px;
+       }
+
+       .faq-question {
+           background: #f8f9fa;
+           padding: 20px;
+           cursor: pointer;
+           font-weight: 600;
+           font-size: 18px;
+           color: #2c3e50;
+           border-radius: 8px;
+           transition: background 0.3s ease;
+       }
+
+       .faq-question:hover {
+           background: #e9ecef;
+       }
+
+       .faq-answer {
+           padding: 20px;
+           display: none;
+           font-size: 16px;
+           line-height: 1.6;
+       }
+
+       .faq-answer.active {
+           display: block;
+       }
+
+       /* Footer */
+       footer {
+           background: #2c3e50;
+           color: white;
+           text-align: center;
+           padding: 30px 0;
+           margin-top: 60px;
+       }
+
+       /* Responsive */
+       @media (max-width: 768px) {
+           .headline {
+               font-size: 32px;
+           }
+           
+           .subtitle {
+               font-size: 18px;
+           }
+           
+           .question-title {
+               font-size: 22px;
+           }
+           
+           .section-title {
+               font-size: 26px;
+           }
+           
+           .container {
+               padding: 0 15px;
+           }
+
+           .cta-button, .cta-button-large {
+               font-size: 14px;
+               padding: 12px 25px;
+           }
+       }
+
+       /* Utilities */
+       .text-center { text-align: center; }
+       .hidden { display: none; }
+       .mb-20 { margin-bottom: 20px; }
+       .mb-30 { margin-bottom: 30px; }
+       .mt-30 { margin-top: 30px; }
+   </style>
+
+   <!-- PIXEL DE RASTREAMENTO UTMIFY -->
+   <script>
+       window.pixelId = "688f8b363addbd79cf29214b";
+       var a = document.createElement("script");
+       a.setAttribute("async", "");
+       a.setAttribute("defer", "");
+       a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+       document.head.appendChild(a);
+   </script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">PareBrigas.com</div>
-        </div>
-    </header>
+   <!-- Header -->
+   <header>
+       <div class="container">
+           <div class="logo">PareBrigas.com</div>
+       </div>
+   </header>
 
-    <!-- Landing Page -->
-    <section class="landing" id="landing">
-        <div class="container">
-            <h1 class="headline">Por que vocês brigam tanto<br>e nem sabem o real motivo?</h1>
-            <p class="subtitle">Descubra em 3 minutos o que realmente está sabotando seu relacionamento<br>(A resposta vai te surpreender)</p>
-            <button class="cta-button" onclick="startQuiz()">🧠 DESCOBRIR AGORA - É GRÁTIS</button>
-            <div class="trust-indicators">Quiz rápido • Resultado imediato • 100% confidencial</div>
-        </div>
-    </section>
+   <!-- Landing Page -->
+   <section class="landing" id="landing">
+       <div class="container">
+           <h1 class="headline">Por que vocês brigam tanto<br>e nem sabem o real motivo?</h1>
+           <p class="subtitle">Descubra em 3 minutos o que realmente está sabotando seu relacionamento<br>(A resposta vai te surpreender)</p>
+           
+           <div class="cta-section">
+               <p class="cta-text">Quer descobrir o que está sabotando seu relacionamento?</p>
+               <p class="cta-arrow">👇 Clique no botão abaixo 👇</p>
+               <button class="cta-button-large" onclick="startQuiz()">🧠 FAZER O QUIZ GRÁTIS</button>
+           </div>
+           
+           <div class="trust-indicators">Quiz rápido • Resultado imediato • 100% confidencial</div>
+       </div>
+   </section>
 
-    <!-- Quiz Container -->
-    <section class="quiz-container" id="quiz">
-        <div class="container">
-            <div class="quiz-progress">
-                <div class="quiz-progress-bar" id="progressBar"></div>
-            </div>
-            
-            <!-- Question 1 -->
-            <div class="quiz-question active" data-question="1">
-                <h2 class="question-title">Quando seu parceiro não faz algo que você pediu, sua primeira reação é:</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(1, 'a')">a) Explico novamente com calma</div>
-                    <div class="option" onclick="selectAnswer(1, 'b')">b) Fico irritada e cobro na hora</div>
-                    <div class="option" onclick="selectAnswer(1, 'c')">c) Guardo a frustração e explodo depois</div>
-                    <div class="option" onclick="selectAnswer(1, 'd')">d) Penso que ele não me valoriza</div>
-                </div>
-            </div>
+   <!-- Quiz Container -->
+   <section class="quiz-container" id="quiz">
+       <div class="container">
+           <div class="quiz-progress">
+               <div class="quiz-progress-bar" id="progressBar"></div>
+           </div>
+           
+           <!-- Question 1 -->
+           <div class="quiz-question active" data-question="1">
+               <h2 class="question-title">Quando seu parceiro não faz algo que você pediu, sua primeira reação é:</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(1, 'a')">a) Explico novamente com calma</div>
+                   <div class="option" onclick="selectAnswer(1, 'b')">b) Fico irritada e cobro na hora</div>
+                   <div class="option" onclick="selectAnswer(1, 'c')">c) Guardo a frustração e explodo depois</div>
+                   <div class="option" onclick="selectAnswer(1, 'd')">d) Penso que ele não me valoriza</div>
+               </div>
+           </div>
 
-            <!-- Question 2 -->
-            <div class="quiz-question" data-question="2">
-                <h2 class="question-title">Você consegue identificar qual emoção sente ANTES da raiva aparecer?</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(2, 'a')">a) Sempre sei exatamente o que sinto</div>
-                    <div class="option" onclick="selectAnswer(2, 'b')">b) Às vezes percebo, mas nem sempre</div>
-                    <div class="option" onclick="selectAnswer(2, 'c')">c) Raramente paro para pensar nisso</div>
-                    <div class="option" onclick="selectAnswer(2, 'd')">d) Só sinto raiva mesmo</div>
-                </div>
-            </div>
+           <!-- Question 2 -->
+           <div class="quiz-question" data-question="2">
+               <h2 class="question-title">Você consegue identificar qual emoção sente ANTES da raiva aparecer?</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(2, 'a')">a) Sempre sei exatamente o que sinto</div>
+                   <div class="option" onclick="selectAnswer(2, 'b')">b) Às vezes percebo, mas nem sempre</div>
+                   <div class="option" onclick="selectAnswer(2, 'c')">c) Raramente paro para pensar nisso</div>
+                   <div class="option" onclick="selectAnswer(2, 'd')">d) Só sinto raiva mesmo</div>
+               </div>
+           </div>
 
-            <!-- Question 3 -->
-            <div class="quiz-question" data-question="3">
-                <h2 class="question-title">Quando vocês brigam, você costuma:</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(3, 'a')">a) Focar em resolver o problema específico</div>
-                    <div class="option" onclick="selectAnswer(3, 'b')">b) Trazer outros assuntos não resolvidos</div>
-                    <div class="option" onclick="selectAnswer(3, 'c')">c) Atacar o comportamento dele</div>
-                    <div class="option" onclick="selectAnswer(3, 'd')">d) Sentir que ele nunca me entende</div>
-                </div>
-            </div>
+           <!-- Question 3 -->
+           <div class="quiz-question" data-question="3">
+               <h2 class="question-title">Quando vocês brigam, você costuma:</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(3, 'a')">a) Focar em resolver o problema específico</div>
+                   <div class="option" onclick="selectAnswer(3, 'b')">b) Trazer outros assuntos não resolvidos</div>
+                   <div class="option" onclick="selectAnswer(3, 'c')">c) Atacar o comportamento dele</div>
+                   <div class="option" onclick="selectAnswer(3, 'd')">d) Sentir que ele nunca me entende</div>
+               </div>
+           </div>
 
-            <!-- Question 4 -->
-            <div class="quiz-question" data-question="4">
-                <h2 class="question-title">Você sabe qual é a linguagem do amor do seu parceiro?</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(4, 'a')">a) Sim, e uso isso no dia a dia</div>
-                    <div class="option" onclick="selectAnswer(4, 'b')">b) Tenho uma ideia, mas não pratico muito</div>
-                    <div class="option" onclick="selectAnswer(4, 'c')">c) Já ouvi falar, mas nunca parei para pensar</div>
-                    <div class="option" onclick="selectAnswer(4, 'd')">d) Não sei o que é isso</div>
-                </div>
-            </div>
+           <!-- Question 4 -->
+           <div class="quiz-question" data-question="4">
+               <h2 class="question-title">Você sabe qual é a linguagem do amor do seu parceiro?</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(4, 'a')">a) Sim, e uso isso no dia a dia</div>
+                   <div class="option" onclick="selectAnswer(4, 'b')">b) Tenho uma ideia, mas não pratico muito</div>
+                   <div class="option" onclick="selectAnswer(4, 'c')">c) Já ouvi falar, mas nunca parei para pensar</div>
+                   <div class="option" onclick="selectAnswer(4, 'd')">d) Não sei o que é isso</div>
+               </div>
+           </div>
 
-            <!-- Question 5 -->
-            <div class="quiz-question" data-question="5">
-                <h2 class="question-title">Quando está estressada com outras coisas, como trata seu parceiro?</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(5, 'a')">a) Explico que estou estressada por outros motivos</div>
-                    <div class="option" onclick="selectAnswer(5, 'b')">b) Tento não descontar nele, mas às vezes acontece</div>
-                    <div class="option" onclick="selectAnswer(5, 'c')">c) Fico mais impaciente com tudo</div>
-                    <div class="option" onclick="selectAnswer(5, 'd')">d) Ele vira o alvo da minha frustração</div>
-                </div>
-            </div>
+           <!-- Question 5 -->
+           <div class="quiz-question" data-question="5">
+               <h2 class="question-title">Quando está estressada com outras coisas, como trata seu parceiro?</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(5, 'a')">a) Explico que estou estressada por outros motivos</div>
+                   <div class="option" onclick="selectAnswer(5, 'b')">b) Tento não descontar nele, mas às vezes acontece</div>
+                   <div class="option" onclick="selectAnswer(5, 'c')">c) Fico mais impaciente com tudo</div>
+                   <div class="option" onclick="selectAnswer(5, 'd')">d) Ele vira o alvo da minha frustração</div>
+               </div>
+           </div>
 
-            <!-- Question 6 -->
-            <div class="quiz-question" data-question="6">
-                <h2 class="question-title">Você consegue expressar suas necessidades sem soar como cobrança?</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(6, 'a')">a) Sim, sempre falo de forma clara e carinhosa</div>
-                    <div class="option" onclick="selectAnswer(6, 'b')">b) Na maioria das vezes consigo</div>
-                    <div class="option" onclick="selectAnswer(6, 'c')">c) Às vezes sai mais duro do que eu gostaria</div>
-                    <div class="option" onclick="selectAnswer(6, 'd')">d) Geralmente soa como cobrança mesmo</div>
-                </div>
-            </div>
+           <!-- Question 6 -->
+           <div class="quiz-question" data-question="6">
+               <h2 class="question-title">Você consegue expressar suas necessidades sem soar como cobrança?</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(6, 'a')">a) Sim, sempre falo de forma clara e carinhosa</div>
+                   <div class="option" onclick="selectAnswer(6, 'b')">b) Na maioria das vezes consigo</div>
+                   <div class="option" onclick="selectAnswer(6, 'c')">c) Às vezes sai mais duro do que eu gostaria</div>
+                   <div class="option" onclick="selectAnswer(6, 'd')">d) Geralmente soa como cobrança mesmo</div>
+               </div>
+           </div>
 
-            <!-- Question 7 -->
-            <div class="quiz-question" data-question="7">
-                <h2 class="question-title">Quando ele está quieto ou distante, você:</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(7, 'a')">a) Respeito o espaço dele e pergunto se posso ajudar</div>
-                    <div class="option" onclick="selectAnswer(7, 'b')">b) Fico um pouco ansiosa, mas tento entender</div>
-                    <div class="option" onclick="selectAnswer(7, 'c')">c) Acho que fiz algo errado</div>
-                    <div class="option" onclick="selectAnswer(7, 'd')">d) Fico irritada porque ele "não fala nada"</div>
-                </div>
-            </div>
+           <!-- Question 7 -->
+           <div class="quiz-question" data-question="7">
+               <h2 class="question-title">Quando ele está quieto ou distante, você:</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(7, 'a')">a) Respeito o espaço dele e pergunto se posso ajudar</div>
+                   <div class="option" onclick="selectAnswer(7, 'b')">b) Fico um pouco ansiosa, mas tento entender</div>
+                   <div class="option" onclick="selectAnswer(7, 'c')">c) Acho que fiz algo errado</div>
+                   <div class="option" onclick="selectAnswer(7, 'd')">d) Fico irritada porque ele "não fala nada"</div>
+               </div>
+           </div>
 
-            <!-- Question 8 -->
-            <div class="quiz-question" data-question="8">
-                <h2 class="question-title">Você conhece os gatilhos emocionais que mais te afetam?</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(8, 'a')">a) Sim, sei identificar e trabalho com eles</div>
-                    <div class="option" onclick="selectAnswer(8, 'b')">b) Tenho uma noção, mas ainda me pego reagindo</div>
-                    <div class="option" onclick="selectAnswer(8, 'c')">c) Sei alguns, mas não sei como lidar</div>
-                    <div class="option" onclick="selectAnswer(8, 'd')">d) Não sei identificar, só reajo</div>
-                </div>
-            </div>
+           <!-- Question 8 -->
+           <div class="quiz-question" data-question="8">
+               <h2 class="question-title">Você conhece os gatilhos emocionais que mais te afetam?</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(8, 'a')">a) Sim, sei identificar e trabalho com eles</div>
+                   <div class="option" onclick="selectAnswer(8, 'b')">b) Tenho uma noção, mas ainda me pego reagindo</div>
+                   <div class="option" onclick="selectAnswer(8, 'c')">c) Sei alguns, mas não sei como lidar</div>
+                   <div class="option" onclick="selectAnswer(8, 'd')">d) Não sei identificar, só reajo</div>
+               </div>
+           </div>
 
-            <!-- Question 9 -->
-            <div class="quiz-question" data-question="9">
-                <h2 class="question-title">Após uma briga, vocês costumam:</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(9, 'a')">a) Conversar e resolver o que causou o conflito</div>
-                    <div class="option" onclick="selectAnswer(9, 'b')">b) Fazer as pazes, mas o problema fica sem solução</div>
-                    <div class="option" onclick="selectAnswer(9, 'c')">c) Cada um fica no seu canto até passar</div>
-                    <div class="option" onclick="selectAnswer(9, 'd')">d) Voltam os mesmos problemas em poucos dias</div>
-                </div>
-            </div>
+           <!-- Question 9 -->
+           <div class="quiz-question" data-question="9">
+               <h2 class="question-title">Após uma briga, vocês costumam:</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(9, 'a')">a) Conversar e resolver o que causou o conflito</div>
+                   <div class="option" onclick="selectAnswer(9, 'b')">b) Fazer as pazes, mas o problema fica sem solução</div>
+                   <div class="option" onclick="selectAnswer(9, 'c')">c) Cada um fica no seu canto até passar</div>
+                   <div class="option" onclick="selectAnswer(9, 'd')">d) Voltam os mesmos problemas em poucos dias</div>
+               </div>
+           </div>
 
-            <!-- Question 10 -->
-            <div class="quiz-question" data-question="10">
-                <h2 class="question-title">Você acredita que conhece profundamente quem você é emocionalmente?</h2>
-                <div class="question-options">
-                    <div class="option" onclick="selectAnswer(10, 'a')">a) Sim, tenho clareza dos meus padrões e reações</div>
-                    <div class="option" onclick="selectAnswer(10, 'b')">b) Conheço algumas partes, mas ainda descobrindo outras</div>
-                    <div class="option" onclick="selectAnswer(10, 'c')">c) Sei pouco sobre meus padrões emocionais</div>
-                    <div class="option" onclick="selectAnswer(10, 'd')">d) Não, me surpreendo com minhas reações constantemente</div>
-                </div>
-            </div>
-        </div>
-    </section>
+           <!-- Question 10 -->
+           <div class="quiz-question" data-question="10">
+               <h2 class="question-title">Você acredita que conhece profundamente quem você é emocionalmente?</h2>
+               <div class="question-options">
+                   <div class="option" onclick="selectAnswer(10, 'a')">a) Sim, tenho clareza dos meus padrões e reações</div>
+                   <div class="option" onclick="selectAnswer(10, 'b')">b) Conheço algumas partes, mas ainda descobrindo outras</div>
+                   <div class="option" onclick="selectAnswer(10, 'c')">c) Sei pouco sobre meus padrões emocionais</div>
+                   <div class="option" onclick="selectAnswer(10, 'd')">d) Não, me surpreendo com minhas reações constantemente</div>
+               </div>
+           </div>
+       </div>
+   </section>
 
-    <!-- Result Section -->
-    <section class="result-container" id="result">
-        <div class="container">
-            <h2 class="result-headline">Você se perdeu de você mesma —<br>e isso está destruindo seu relacionamento</h2>
-            
-            <div class="diagnosis">
-                <p style="font-size: 18px; margin-bottom: 25px; font-weight: 600;">Com base nas suas respostas, identificamos que:</p>
-                <div class="diagnosis-item">Você reage mais do que responde</div>
-                <div class="diagnosis-item">Não reconhece seus padrões emocionais</div>
-                <div class="diagnosis-item">Projeta suas necessidades no seu parceiro</div>
-                <div class="diagnosis-item">Briga pelos sintomas, não pela causa real</div>
-            </div>
+   <!-- Result Section -->
+   <section class="result-container" id="result">
+       <div class="container">
+           <h2 class="result-headline">Você se perdeu de você mesma —<br>e isso está destruindo seu relacionamento</h2>
+           
+           <div class="diagnosis">
+               <p style="font-size: 18px; margin-bottom: 25px; font-weight: 600;">Com base nas suas respostas, identificamos que:</p>
+               <div class="diagnosis-item">Você reage mais do que responde</div>
+               <div class="diagnosis-item">Não reconhece seus padrões emocionais</div>
+               <div class="diagnosis-item">Projeta suas necessidades no seu parceiro</div>
+               <div class="diagnosis-item">Briga pelos sintomas, não pela causa real</div>
+           </div>
 
-            <div class="insight-box">
-                O problema não é que ele "não muda"...<br>
-                É que vocês não se conhecem profundamente.
-            </div>
+           <div class="insight-box">
+               O problema não é que ele "não muda"...<br>
+               É que vocês não se conhecem profundamente.
+           </div>
 
-            <button class="cta-button" onclick="showSalesPage()">🎯 QUERO APRENDER A ME CONHECER<br>E TRANSFORMAR MEU RELACIONAMENTO</button>
-            
-            <div class="trust-indicators mt-30">
-                ✓ Acesso por 1 ano completo<br>
-                ✓ Resultados em 30 dias<br>
-                ✓ Garantia de 7 dias
-            </div>
-        </div>
-    </section>
+           <div class="cta-section">
+               <p class="cta-text">Pronta para transformar seu relacionamento através do autoconhecimento?</p>
+               <p class="cta-arrow">👇 Clique no botão abaixo e veja como 👇</p>
+               <button class="cta-button-large" onclick="showSalesPage()">🎯 QUERO APRENDER A ME CONHECER</button>
+           </div>
+           
+           <div class="trust-indicators mt-30">
+               ✓ Acesso por 1 ano completo<br>
+               ✓ Resultados em 30 dias<br>
+               ✓ Garantia de 7 dias
+           </div>
+       </div>
+   </section>
 
-    <!-- Sales Page -->
-    <section class="sales-container" id="sales">
-        <div class="container">
-            <!-- Main Headline -->
-            <div class="section text-center">
-                <h1 class="headline">Pare de Brigar Por Bobagens e<br>Construa o Relacionamento que Vocês Merecem</h1>
-                <p class="subtitle">O programa de autoconhecimento que já transformou milhares de relacionamentos — por apenas R$ 29,00</p>
-            </div>
+   <!-- Sales Page -->
+   <section class="sales-container" id="sales">
+       <div class="container">
+           <!-- Main Headline -->
+           <div class="section text-center">
+               <h1 class="headline">Pare de Brigar Por Bobagens e<br>Construa o Relacionamento que Vocês Merecem</h1>
+               <p class="subtitle">O programa de autoconhecimento que já transformou milhares de relacionamentos — por apenas R$ 29,00</p>
+           </div>
 
-            <!-- Problem Section -->
-            <div class="section">
-                <h2 class="section-title">Se você chegou até aqui é porque:</h2>
-                <ul class="problem-list">
-                    <li>As brigas se repetem pelos mesmos motivos</li>
-                    <li>Você sente que fala e ele não escuta</li>
-                    <li>O desgaste emocional está afetando tudo</li>
-                    <li>Você já tentou "conversar" mil vezes</li>
-                    <li>Sente que está perdendo a si mesma no relacionamento</li>
-                    <li>As discussões viram briga por qualquer coisa</li>
-                </ul>
-            </div>
+           <!-- Problem Section -->
+           <div class="section">
+               <h2 class="section-title">Se você chegou até aqui é porque:</h2>
+               <ul class="problem-list">
+                   <li>As brigas se repetem pelos mesmos motivos</li>
+                   <li>Você sente que fala e ele não escuta</li>
+                   <li>O desgaste emocional está afetando tudo</li>
+                   <li>Você já tentou "conversar" mil vezes</li>
+                   <li>Sente que está perdendo a si mesma no relacionamento</li>
+                   <li>As discussões viram briga por qualquer coisa</li>
+               </ul>
+           </div>
 
-            <!-- Discovery Section -->
-            <div class="section text-center">
-                <h2 class="section-title">A Descoberta que Muda Tudo</h2>
-                <div class="insight-box">
-                    Após anos estudando relacionamentos, descobrimos que:<br><br>
-                    <strong>O problema não é comunicação.<br>É autoconhecimento.</strong>
-                </div>
-                <p style="font-size: 18px; margin-top: 20px;">90% das brigas acontecem porque não conhecemos nossos próprios gatilhos emocionais nem sabemos como nosso parceiro funciona emocionalmente.</p>
-            </div>
+           <!-- Discovery Section -->
+           <div class="section text-center">
+               <h2 class="section-title">A Descoberta que Muda Tudo</h2>
+               <div class="insight-box">
+                   Após anos estudando relacionamentos, descobrimos que:<br><br>
+                   <strong>O problema não é comunicação.<br>É autoconhecimento.</strong>
+               </div>
+               <p style="font-size: 18px; margin-top: 20px;">90% das brigas acontecem porque não conhecemos nossos próprios gatilhos emocionais nem sabemos como nosso parceiro funciona emocionalmente.</p>
+           </div>
 
-            <!-- Solution Section -->
-            <div class="section">
-                <h2 class="section-title">🧠 AppAutoconhecimento - Módulo Relacionamentos</h2>
-                <ul class="solution-list">
-                    <li>15 exercícios práticos de autoconhecimento emocional</li>
-                    <li>Mapeamento completo dos seus gatilhos emocionais</li>
-                    <li>Como entender e respeitar a linguagem emocional dele</li>
-                    <li>Técnicas comprovadas para responder ao invés de reagir</li>
-                    <li>Plano de ação personalizado para os próximos 30 dias</li>
-                    <li>Método para identificar a causa real das brigas</li>
-                    <li>Como expressar necessidades sem soar como cobrança</li>
-                    <li>Estratégias para lidar com seus próprios padrões limitantes</li>
-                </ul>
-            </div>
+           <!-- Solution Section -->
+           <div class="section">
+               <h2 class="section-title">🧠 AppAutoconhecimento - Módulo Relacionamentos</h2>
+               <ul class="solution-list">
+                   <li>15 exercícios práticos de autoconhecimento emocional</li>
+                   <li>Mapeamento completo dos seus gatilhos emocionais</li>
+                   <li>Como entender e respeitar a linguagem emocional dele</li>
+                   <li>Técnicas comprovadas para responder ao invés de reagir</li>
+                   <li>Plano de ação personalizado para os próximos 30 dias</li>
+                   <li>Método para identificar a causa real das brigas</li>
+                   <li>Como expressar necessidades sem soar como cobrança</li>
+                   <li>Estratégias para lidar com seus próprios padrões limitantes</li>
+               </ul>
+           </div>
 
-            <!-- Testimonials -->
-            <div class="section">
-                <h2 class="section-title">O que outras mulheres estão dizendo:</h2>
-                
-                <div class="testimonial">
-                    "Percebi que 90% das brigas eram por eu não me conhecer emocionalmente. Em 3 semanas, nosso relacionamento mudou completamente!"
-                    <div class="testimonial-author">- Marina, 42 anos</div>
-                </div>
+           <!-- Testimonials -->
+           <div class="section">
+               <h2 class="section-title">O que outras mulheres estão dizendo:</h2>
+               
+               <div class="testimonial">
+                   "Percebi que 90% das brigas eram por eu não me conhecer emocionalmente. Em 3 semanas, nosso relacionamento mudou completamente!"
+                   <div class="testimonial-author">- Marina, 42 anos</div>
+               </div>
 
-                <div class="testimonial">
-                    "Finalmente entendi meus gatilhos. Agora quando sinto raiva, paro e penso antes de reagir. Salvou meu casamento de 15 anos."
-                    <div class="testimonial-author">- Patrícia, 38 anos</div>
-                </div>
+               <div class="testimonial">
+                   "Finalmente entendi meus gatilhos. Agora quando sinto raiva, paro e penso antes de reagir. Salvou meu casamento de 15 anos."
+                   <div class="testimonial-author">- Patrícia, 38 anos</div>
+               </div>
 
-                <div class="testimonial">
-                    "O programa me ensinou que eu estava projetando minhas inseguranças nele. Hoje nos entendemos muito melhor!"
-                    <div class="testimonial-author">- Cláudia, 45 anos</div>
-                </div>
-            </div>
+               <div class="testimonial">
+                   "O programa me ensinou que eu estava projetando minhas inseguranças nele. Hoje nos entendemos muito melhor!"
+                   <div class="testimonial-author">- Cláudia, 45 anos</div>
+               </div>
+           </div>
 
-            <!-- Offer -->
-            <div class="offer-box">
-                <h3 style="font-size: 28px; margin-bottom: 20px;">🎁 OFERTA ESPECIAL</h3>
-                <div class="price-old">De R$ 97,00 por apenas</div>
-                <div class="price-new">R$ 29,00</div>
-                <p style="font-size: 18px; margin-bottom: 30px;">Acesso por 1 ano completo • Sem mensalidade</p>
-                <a href="https://pay.kiwify.com.br/nAeTa0z?utm_source=facebook&utm_medium=paid&utm_campaign=parebrigas&utm_content=botao-compra" class="cta-button" style="background: white; color: #e74c3c; font-size: 22px; padding: 20px 50px;">💝 QUERO TRANSFORMAR MEU RELACIONAMENTO</a>
-                <p style="font-size: 14px; margin-top: 15px; opacity: 0.9;">Compra 100% segura • Acesso imediato</p>
-            </div>
+           <!-- Offer -->
+           <div class="offer-box">
+               <h3 style="font-size: 28px; margin-bottom: 20px;">🎁 OFERTA ESPECIAL</h3>
+               <div class="price-old">De R$ 97,00 por apenas</div>
+               <div class="price-new">R$ 29,00</div>
+               <p style="font-size: 18px; margin-bottom: 20px;">Acesso por 1 ano completo • Sem mensalidade</p>
+               
+               <div class="cta-section">
+                   <p class="cta-text" style="color: white; margin-bottom: 10px;">Quer transformar seu relacionamento hoje mesmo?</p>
+                   <p class="cta-arrow" style="color: white; margin-bottom: 20px;">👇 Clique no botão abaixo 👇</p>
+                   <a href="https://pay.kiwify.com.br/nAeTa0z?utm_source=facebook&utm_medium=paid&utm_campaign=parebrigas&utm_content=botao-compra" class="offer-cta-button">💝 QUERO TRANSFORMAR MEU RELACIONAMENTO</a>
+               </div>
+               
+               <p style="font-size: 14px; margin-top: 15px; opacity: 0.9;">Compra 100% segura • Acesso imediato</p>
+           </div>
 
-            <!-- Guarantee -->
-            <div class="guarantee">
-                <div class="guarantee-title">⭐ GARANTIA DE 7 DIAS</div>
-                <p>Se por qualquer motivo você não ficar satisfeita, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
-            </div>
+           <!-- Guarantee -->
+           <div class="guarantee">
+               <div class="guarantee-title">⭐ GARANTIA DE 7 DIAS</div>
+               <p>Se por qualquer motivo você não ficar satisfeita, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+           </div>
 
-            <!-- FAQ Section -->
-            <div class="faq-container">
-                <h2 class="section-title">Perguntas Frequentes</h2>
+           <!-- FAQ Section -->
+           <div class="faq-container">
+               <h2 class="section-title">Perguntas Frequentes</h2>
 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(1)">
-                        Como funciona o acesso ao programa? ▼
-                    </div>
-                    <div class="faq-answer" id="faq1">
-                        Após a compra, você recebe o acesso imediato por email. O programa fica disponível por 1 ano completo na nossa plataforma online, podendo acessar quantas vezes quiser pelo celular, tablet ou computador.
-                    </div>
-                </div>
+               <div class="faq-item">
+                   <div class="faq-question" onclick="toggleFAQ(1)">
+                       Como funciona o acesso ao programa? ▼
+                   </div>
+                  <div class="faq-answer" id="faq1">
+                       Após a compra, você recebe o acesso imediato por email. O programa fica disponível por 1 ano completo na nossa plataforma online, podendo acessar quantas vezes quiser pelo celular, tablet ou computador.
+                   </div>
+               </div>
 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(2)">
-                        Quanto tempo preciso dedicar por dia? ▼
-                    </div>
-                    <div class="faq-answer" id="faq2">
-                        O programa foi pensado para mulheres com rotina corrida. Você pode fazer no seu ritmo, dedicando de 15 a 30 minutos por dia. Muitas mulheres veem resultados já na primeira semana.
-                    </div>
-                </div>
+               <div class="faq-item">
+                   <div class="faq-question" onclick="toggleFAQ(2)">
+                       Quanto tempo preciso dedicar por dia? ▼
+                   </div>
+                   <div class="faq-answer" id="faq2">
+                       O programa foi pensado para mulheres com rotina corrida. Você pode fazer no seu ritmo, dedicando de 15 a 30 minutos por dia. Muitas mulheres veem resultados já na primeira semana.
+                   </div>
+               </div>
 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(3)">
-                        Meu parceiro precisa participar? ▼
-                    </div>
-                    <div class="faq-answer" id="faq3">
-                        Não! O programa é focado no SEU autoconhecimento. Quando você muda seus padrões emocionais, automaticamente a dinâmica do relacionamento muda. Muitas vezes, o parceiro nem percebe que você está fazendo algo diferente, só sente a melhoria.
-                    </div>
-                </div>
+               <div class="faq-item">
+                   <div class="faq-question" onclick="toggleFAQ(3)">
+                       Meu parceiro precisa participar? ▼
+                   </div>
+                   <div class="faq-answer" id="faq3">
+                       Não! O programa é focado no SEU autoconhecimento. Quando você muda seus padrões emocionais, automaticamente a dinâmica do relacionamento muda. Muitas vezes, o parceiro nem percebe que você está fazendo algo diferente, só sente a melhoria.
+                   </div>
+               </div>
 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(4)">
-                        E se eu não conseguir aplicar as técnicas? ▼
-                    </div>
-                    <div class="faq-answer" id="faq4">
-                        Todas as técnicas são práticas e testadas. Começamos com exercícios simples e evoluímos gradualmente. Além disso, você tem 7 dias de garantia total para testar sem riscos.
-                    </div>
-                </div>
+               <div class="faq-item">
+                   <div class="faq-question" onclick="toggleFAQ(4)">
+                       E se eu não conseguir aplicar as técnicas? ▼
+                   </div>
+                   <div class="faq-answer" id="faq4">
+                       Todas as técnicas são práticas e testadas. Começamos com exercícios simples e evoluímos gradualmente. Além disso, você tem 7 dias de garantia total para testar sem riscos.
+                   </div>
+               </div>
 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(5)">
-                        Já tentei terapia de casal e não funcionou... ▼
-                    </div>
-                    <div class="faq-answer" id="faq5">
-                        A terapia de casal foca na comunicação entre vocês dois. Nosso programa foca no SEU autoconhecimento individual. Quando você se conhece profundamente, a forma como se relaciona muda naturalmente. É uma abordagem completamente diferente.
-                    </div>
-                </div>
+               <div class="faq-item">
+                   <div class="faq-question" onclick="toggleFAQ(5)">
+                       Já tentei terapia de casal e não funcionou... ▼
+                   </div>
+                   <div class="faq-answer" id="faq5">
+                       A terapia de casal foca na comunicação entre vocês dois. Nosso programa foca no SEU autoconhecimento individual. Quando você se conhece profundamente, a forma como se relaciona muda naturalmente. É uma abordagem completamente diferente.
+                   </div>
+               </div>
 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(6)">
-                        O pagamento é seguro? ▼
-                    </div>
-                    <div class="faq-answer" id="faq6">
-                        Sim! Utilizamos plataformas de pagamento certificadas com criptografia de dados. Você pode pagar por cartão, PIX ou boleto. Seus dados estão 100% protegidos.
-                    </div>
-                </div>
+               <div class="faq-item">
+                   <div class="faq-question" onclick="toggleFAQ(6)">
+                       O pagamento é seguro? ▼
+                   </div>
+                   <div class="faq-answer" id="faq6">
+                       Sim! Utilizamos plataformas de pagamento certificadas com criptografia de dados. Você pode pagar por cartão, PIX ou boleto. Seus dados estão 100% protegidos.
+                   </div>
+               </div>
 
-                <div class="faq-item">
+               <div class="faq-item">
                    <div class="faq-question" onclick="toggleFAQ(7)">
                        Por que apenas R$ 29,00? ▼
                    </div>
@@ -729,8 +819,10 @@
            </div>
 
            <!-- Final CTA -->
-           <div class="text-center mt-30">
-               <a href="https://pay.kiwify.com.br/nAeTa0z?utm_source=facebook&utm_medium=paid&utm_campaign=parebrigas&utm_content=botao-compra-final" class="cta-button" style="font-size: 24px; padding: 25px 60px;">💝 QUERO COMEÇAR MINHA TRANSFORMAÇÃO AGORA</a>
+           <div class="cta-section mt-30">
+               <p class="cta-text">Pronta para começar sua transformação?</p>
+               <p class="cta-arrow">👇 Clique no botão abaixo e garante seu acesso 👇</p>
+               <a href="https://pay.kiwify.com.br/nAeTa0z?utm_source=facebook&utm_medium=paid&utm_campaign=parebrigas&utm_content=botao-compra-final" class="cta-button-large">💝 QUERO COMEÇAR MINHA TRANSFORMAÇÃO AGORA</a>
                <div class="trust-indicators mt-30">
                    ✓ Acesso imediato após o pagamento<br>
                    ✓ Garantia de 7 dias<br>
@@ -779,8 +871,8 @@
            // Highlight selected answer
            const options = document.querySelectorAll(`[data-question="${questionNum}"] .option`);
            options.forEach(option => option.style.background = '#f8f9fa');
-           event.target.style.background = '#fff5f5';
-           event.target.style.borderColor = '#e74c3c';
+           event.target.style.background = '#e3f2fd';
+           event.target.style.borderColor = '#007bff';
            
            // Auto advance after 1 second
            setTimeout(() => {
@@ -865,7 +957,7 @@
        }
 
        // Add smooth scrolling for better UX
-       document.querySelectorAll('.cta-button').forEach(button => {
+       document.querySelectorAll('.cta-button, .cta-button-large, .offer-cta-button').forEach(button => {
            button.addEventListener('click', function() {
                // Rastreamento: Clique em CTA
                if (typeof utmify !== 'undefined') {
@@ -895,13 +987,13 @@
            const options = document.querySelectorAll('.option');
            options.forEach(option => {
                option.addEventListener('mouseenter', function() {
-                   if (this.style.background !== 'rgb(255, 245, 245)') {
+                   if (this.style.background !== 'rgb(227, 242, 253)') {
                        this.style.background = '#f0f0f0';
                    }
                });
                
                option.addEventListener('mouseleave', function() {
-                   if (this.style.background !== 'rgb(255, 245, 245)') {
+                   if (this.style.background !== 'rgb(227, 242, 253)') {
                        this.style.background = '#f8f9fa';
                    }
                });
